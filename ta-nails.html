@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T&A Nails | Professional Nail Salon in Ashtead, Surrey</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blush: #E8A0A8;
+    --rose: #C4607A;
+    --dusty: #A04060;
+    --nude: #F0D8D0;
+    --cream: #FAF6F4;
+    --warm: #F5EDE8;
+    --white: #FFFFFF;
+    --dark: #1E0C10;
+    --text: #2C1820;
+    --grey: #9A8888;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(250,246,244,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(196,96,122,0.12);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo span { color: var(--rose); font-style: italic; }
+
+  nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+
+  nav a {
+    text-decoration: none;
+    color: rgba(44,24,32,0.5);
+    font-size: 0.83rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--rose); }
+
+  .nav-book {
+    background: var(--rose) !important;
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 1px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-book:hover { background: var(--dusty) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,96,122,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,160,168,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(196,96,122,0.15);
+    border: 1px solid rgba(196,96,122,0.25);
+    color: var(--blush);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 1px;
+    margin-bottom: 1.8rem;
+    width: fit-content;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title em { font-style: italic; color: var(--blush); font-weight: 400; }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 400px;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-rose {
+    background: var(--rose);
+    color: white;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 1px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-rose:hover { background: var(--dusty); transform: translateY(-1px); }
+
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.18);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 300;
+    border-radius: 1px;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--blush); background: rgba(196,96,122,0.08); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--blush);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  .hero-right {
+    background: var(--nude);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blush), var(--rose), var(--dusty));
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-polish-row {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .polish-bottle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .polish-swatch {
+    width: 100%;
+    height: 70px;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px rgba(44,24,32,0.1);
+  }
+
+  .polish-name {
+    font-size: 0.65rem;
+    color: var(--grey);
+    text-align: center;
+    font-weight: 300;
+  }
+
+  .hero-card {
+    background: white;
+    border-radius: 2px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(44,24,32,0.1);
+    text-align: center;
+  }
+
+  .hero-card-icon { font-size: 3rem; display: block; margin-bottom: 0.8rem; animation: sparkle 2s ease-in-out infinite; }
+
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(-2deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
+  }
+
+  .hero-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-card-sub { font-size: 0.8rem; color: var(--grey); font-weight: 300; }
+
+  .hero-card-rating { margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+  .card-stars { color: var(--rose); font-size: 0.9rem; }
+  .card-score { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--dark); }
+  .card-count { font-size: 0.72rem; color: var(--grey); }
+
+  /* STRIP */
+  .strip {
+    background: var(--rose);
+    padding: 1.1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .strip-item { color: white; font-size: 0.82rem; font-weight: 400; display: flex; align-items: center; gap: 0.5rem; opacity: 0.95; }
+
+  /* SERVICES */
+  .services {
+    padding: 7rem 5rem;
+    background: var(--cream);
+  }
+
+  .section-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--rose); }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 0.92rem;
+    color: var(--grey);
+    font-weight: 300;
+    line-height: 1.85;
+    max-width: 500px;
+    margin-bottom: 3.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(44,24,32,0.08);
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover { background: white; }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blush), var(--rose));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc { font-size: 0.86rem; color: var(--grey); line-height: 1.75; font-weight: 300; }
+
+  /* ABOUT */
+  .about {
+    background: var(--warm);
+    padding: 7rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    background: var(--dark);
+    border-radius: 2px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blush), var(--rose), var(--dusty));
+  }
+
+  .about-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+  }
+
+  .about-stars { font-size: 1.3rem; color: var(--blush); display: block; margin: 0.3rem 0; }
+  .about-count { font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .about-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 1.8rem 0; }
+
+  .about-list { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .about-list-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.87rem; color: rgba(255,255,255,0.5); font-weight: 300; }
+
+  .list-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blush); flex-shrink: 0; }
+
+  .about-text p { font-size: 0.92rem; color: rgba(44,24,32,0.6); line-height: 1.9; font-weight: 300; margin-bottom: 1.2rem; }
+  .about-text p strong { color: var(--dark); font-weight: 500; }
+
+  /* REVIEWS */
+  .reviews { padding: 7rem 5rem; background: var(--cream); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .review-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1px;
+    border: 1px solid rgba(44,24,32,0.06);
+    border-top: 3px solid var(--blush);
+  }
+
+  .review-stars { color: var(--rose); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+
+  .review-text {
+    font-size: 0.9rem;
+    color: rgba(44,24,32,0.65);
+    line-height: 1.78;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 1.2rem;
+  }
+
+  .review-author { font-size: 0.78rem; font-weight: 500; color: var(--rose); letter-spacing: 0.05em; }
+  .review-loc { font-size: 0.74rem; color: var(--grey); font-weight: 300; margin-top: 0.1rem; }
+
+  /* AREA */
+  .area {
+    background: var(--dark);
+    padding: 6rem 5rem;
+    text-align: center;
+  }
+
+  .area .section-title { color: white; }
+  .area .section-sub { color: rgba(255,255,255,0.35); margin: 0.8rem auto 2rem; text-align: center; }
+
+  .area-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+
+  .area-tag {
+    background: rgba(196,96,122,0.1);
+    border: 1px solid rgba(196,96,122,0.2);
+    padding: 0.5rem 1.1rem;
+    font-size: 0.83rem;
+    color: var(--blush);
+    border-radius: 1px;
+    font-weight: 300;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 7rem 5rem;
+    background: var(--warm);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-items { display: flex; flex-direction: column; gap: 1.8rem; margin-top: 1rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+  .contact-icon {
+    width: 2.5rem; height: 2.5rem;
+    background: rgba(196,96,122,0.1);
+    border-radius: 1px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+
+  .c-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.2rem; }
+  .c-value { font-size: 0.95rem; color: var(--text); font-weight: 300; line-height: 1.5; }
+  .c-value a { color: var(--text); text-decoration: none; }
+
+  .contact-form-box {
+    background: white;
+    border-radius: 1px;
+    padding: 2.5rem;
+    border: 1px solid rgba(44,24,32,0.07);
+    border-top: 3px solid var(--rose);
+    box-shadow: 0 8px 40px rgba(44,24,32,0.07);
+  }
+
+  .form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--dark); margin-bottom: 0.3rem; }
+  .form-subtitle { font-size: 0.83rem; color: var(--grey); font-weight: 300; margin-bottom: 1.5rem; }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(44,24,32,0.35);
+    margin-bottom: 0.35rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: var(--cream);
+    border: 1.5px solid rgba(44,24,32,0.09);
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 1px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group select option { background: white; }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(44,24,32,0.2); }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--rose); }
+  .form-group textarea { height: 85px; resize: vertical; }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--rose);
+    color: white;
+    border: none;
+    padding: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 1px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-submit:hover { background: var(--dusty); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(196,96,122,0.15);
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo { font-family: 'Cormorant Garamond', serif; color: white; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; }
+  .footer-logo span { color: var(--blush); font-style: italic; }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+
+  .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.65s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .d1 { animation-delay: 0.1s; }
+  .d2 { animation-delay: 0.25s; }
+  .d3 { animation-delay: 0.4s; }
+  .d4 { animation-delay: 0.55s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .hero-right { padding: 2rem 1.5rem; }
+    .services { padding: 5rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+    .reviews { padding: 5rem 1.5rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .area { padding: 5rem 1.5rem; }
+    .contact { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">T&A <span>Nails</span></div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-pill fade-up">💅 5.0 Stars · 26 Reviews · Ashtead, Surrey</div>
+    <h1 class="hero-title fade-up d1">
+      Nails you'll<br>be <em>proud of.</em>
+    </h1>
+    <p class="hero-sub fade-up d2">
+      Professional nail treatments in the heart of Ashtead. From classic manicures to nail art — every treatment delivered with precision, care, and attention to detail.
+    </p>
+    <div class="hero-buttons fade-up d3">
+      <a href="#contact" class="btn-rose">Book an Appointment</a>
+      <a href="tel:01372289170" class="btn-ghost">01372 289170</a>
+    </div>
+    <div class="hero-stats fade-up d4">
+      <div>
+        <div class="stat-num">5.0★</div>
+        <div class="stat-label">Perfect Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">26</div>
+        <div class="stat-label">Reviews</div>
+      </div>
+      <div>
+        <div class="stat-num">Ashtead</div>
+        <div class="stat-label">Surrey</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-polish-row">
+        <div class="polish-bottle">
+          <div class="polish-swatch" style="background: #E8C4C8;"></div>
+          <div class="polish-name">Blush</div>
+        </div>
+        <div class="polish-bottle">
+          <div class="polish-swatch" style="background: #C44060;"></div>
+          <div class="polish-name">Rose</div>
+        </div>
+        <div class="polish-bottle">
+          <div class="polish-swatch" style="background: #1A1A2E;"></div>
+          <div class="polish-name">Noir</div>
+        </div>
+        <div class="polish-bottle">
+          <div class="polish-swatch" style="background: #D4A060;"></div>
+          <div class="polish-name">Gold</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="hero-card-icon">💅</span>
+        <div class="hero-card-title">T&A Nails</div>
+        <div class="hero-card-sub">3 Craddocks Parade · Ashtead · KT21 1QL</div>
+        <div class="hero-card-rating">
+          <span class="card-stars">★★★★★</span>
+          <span class="card-score">5.0</span>
+          <span class="card-count">(26 reviews)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <span class="strip-item">✓ Gel & acrylic specialists</span>
+  <span class="strip-item">✓ Nail art available</span>
+  <span class="strip-item">✓ Walk-ins welcome</span>
+  <span class="strip-item">✓ Friendly & professional</span>
+  <span class="strip-item">✓ Ashtead, Surrey</span>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-eyebrow">Our Treatments</p>
+  <h2 class="section-title">Beautiful nails,<br>every time</h2>
+  <p class="section-sub">From a quick polish change to a full set of acrylics — we offer a complete range of nail treatments to keep your hands and feet looking their best.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">✨</span>
+      <h3 class="service-name">Gel Nails</h3>
+      <p class="service-desc">Long-lasting gel manicures in a huge range of colours. Chip-resistant, glossy, and looking fresh for weeks. Natural hands or extensions.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💅</span>
+      <h3 class="service-name">Acrylic Nails</h3>
+      <p class="service-desc">Full sets, infills, and repairs using premium acrylic products. Strong, beautiful nails shaped and finished exactly to your preference.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🖌️</span>
+      <h3 class="service-name">Nail Art</h3>
+      <p class="service-desc">From subtle designs to bold statement nails — our nail art transforms your nails into something truly unique. Bring your inspiration.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌸</span>
+      <h3 class="service-name">Manicure</h3>
+      <p class="service-desc">Classic manicures including cuticle care, shaping, and your choice of polish. A treat for your hands, leaving them soft and perfectly finished.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🦶</span>
+      <h3 class="service-name">Pedicure</h3>
+      <p class="service-desc">Relaxing pedicures including soak, exfoliation, nail shaping, and polish. Your feet will feel — and look — completely refreshed.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💍</span>
+      <h3 class="service-name">Nail Extensions</h3>
+      <p class="service-desc">Add length and shape with our nail extension service. Sculpted to your desired shape — almond, coffin, square, or stiletto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-num">5.0</div>
+    <span class="about-stars">★★★★★</span>
+    <div class="about-count">26 Google Reviews · Perfect Score</div>
+    <div class="about-divider"></div>
+    <div class="about-list">
+      <div class="about-list-item"><span class="list-dot"></span>Premium products only</div>
+      <div class="about-list-item"><span class="list-dot"></span>Hygienic, professional salon</div>
+      <div class="about-list-item"><span class="list-dot"></span>Walk-ins and appointments welcome</div>
+      <div class="about-list-item"><span class="list-dot"></span>Friendly, welcoming team</div>
+      <div class="about-list-item"><span class="list-dot"></span>Based in Ashtead, Surrey</div>
+    </div>
+  </div>
+  <div class="about-text">
+    <p class="section-eyebrow">About T&A Nails</p>
+    <h2 class="section-title">Your local nail salon<br>in Ashtead</h2>
+    <p>T&A Nails is a professional nail salon right in the heart of Ashtead, Surrey. With a <strong>perfect 5.0-star rating across 26 reviews</strong>, we've built a loyal local following through consistently excellent results and a warm, welcoming atmosphere.</p>
+    <p>We use only <strong>premium, professional-grade products</strong> and keep our standards — and our salon — immaculately clean. Whether you're a regular client or visiting for the first time, you'll always feel at home.</p>
+    <p>Walk-ins are always welcome, or book ahead to guarantee your preferred time. We'd love to see you.</p>
+    <a href="#contact" class="btn-rose" style="display: inline-block; margin-top: 1.5rem;">Book an Appointment</a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <p class="section-eyebrow">Reviews</p>
+  <h2 class="section-title">26 perfect reviews</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My nails always look incredible. The nail art is absolutely stunning and lasts for weeks without chipping. Wouldn't go anywhere else in Ashtead."</p>
+      <p class="review-author">— Sophie K.</p>
+      <p class="review-loc">Ashtead</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Brilliant service every single time. The team are so friendly and really take the time to get exactly what you want. Always leave feeling pampered."</p>
+      <p class="review-author">— Claire R.</p>
+      <p class="review-loc">Leatherhead</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best nail salon I've been to in Surrey. Immaculate salon, gorgeous results, and such a lovely atmosphere. I recommend T&A Nails to everyone."</p>
+      <p class="review-author">— Emma & Jade T.</p>
+      <p class="review-loc">Ashtead</p>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="area">
+  <p class="section-eyebrow" style="color: rgba(232,160,168,0.4); margin: 0 auto 0.8rem; justify-content: center;">📍 Find Us</p>
+  <h2 class="section-title">Right in the heart<br>of Ashtead</h2>
+  <p class="section-sub">Conveniently located at Craddocks Parade in Ashtead, serving the local area and beyond.</p>
+  <div class="area-tags">
+    <span class="area-tag">Ashtead</span>
+    <span class="area-tag">Leatherhead</span>
+    <span class="area-tag">Fetcham</span>
+    <span class="area-tag">Epsom</span>
+    <span class="area-tag">Bookham</span>
+    <span class="area-tag">Cobham</span>
+    <span class="area-tag">Oxshott</span>
+    <span class="area-tag">Tadworth</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <p class="section-eyebrow">Book Now</p>
+    <h2 class="section-title">Ready for beautiful<br>nails?</h2>
+    <p class="section-sub">Call us, pop in, or fill in the form and we'll confirm your appointment quickly.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <p class="c-label">Phone</p>
+          <p class="c-value"><a href="tel:01372289170">01372 289170</a></p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <p class="c-label">Address</p>
+          <p class="c-value">3 Craddocks Parade<br>Ashtead, Surrey KT21 1QL</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕗</div>
+        <div>
+          <p class="c-label">Hours</p>
+          <p class="c-value">Mon–Sat: 9:30am – 6:30pm<br>Walk-ins always welcome</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form-box">
+    <h3 class="form-title">Book an Appointment</h3>
+    <p class="form-subtitle">We'll confirm your slot as soon as possible.</p>
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" placeholder="e.g. Sarah Smith">
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="e.g. 07700 900000">
+    </div>
+    <div class="form-group">
+      <label>Treatment</label>
+      <select>
+        <option value="">Select a treatment...</option>
+        <option>Gel Nails</option>
+        <option>Acrylic Nails</option>
+        <option>Nail Art</option>
+        <option>Manicure</option>
+        <option>Pedicure</option>
+        <option>Nail Extensions</option>
+        <option>Not Sure — Please Advise</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Preferred Day & Time</label>
+      <input type="text" placeholder="e.g. Tuesday afternoon">
+    </div>
+    <div class="form-group">
+      <label>Anything Else?</label>
+      <textarea placeholder="Any designs or special requests..."></textarea>
+    </div>
+    <button class="btn-submit">Book Appointment 💅</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">T&A <span>Nails</span></div>
+  <p class="footer-copy">© 2025 T&A Nails · Ashtead, Surrey · 01372 289170</p>
+</footer>
+
+</body>
+</html>
